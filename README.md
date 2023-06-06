@@ -1,4 +1,17 @@
-﻿The goal with this really small library is to allow an actor to compute/modify/add/remove data during the bluprint compilation process. This code is used in a game so it work in my case with Unreal 5.1.1. It's not really optimized for now but it will in a near future.
+﻿# Why
+The goal with this really small library is to allow an actor to compute/modify/add/remove data during the bluprint compilation process. This code is used in a game so it work in my case with Unreal 5.1.1. It's not really optimized for now but it will in a near future.
+
+# Setup
+This library need to add its referencing during the startup module method.
+
+In your Module base class, you must have a StartupModule method. If you don't have this method, that's mean you haven't still setup your project as a module. I let you follow this page to do this before: https://docs.unrealengine.com/5.1/en-US/how-to-make-a-gameplay-module-in-unreal-engine/
+
+So in your StartupModule method, add this line
+```cpp
+UBlueprintCompilationUtils::RegisterPreCompileEvent();
+```
+
+And that's all, you are ready to use the library
 
 # Usage Exemples
 ## Handle the compilation time
