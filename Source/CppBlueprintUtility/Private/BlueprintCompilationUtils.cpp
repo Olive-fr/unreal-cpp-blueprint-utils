@@ -4,32 +4,6 @@
 UObject* UBlueprintCompilationUtils::LastCompiledObject = nullptr;
 TMap<const FName, UObject*> UBlueprintCompilationUtils::LastCompiledObjectIsolated = TMap<const FName, UObject*>();
 
-// bool UBlueprintCompilationUtils::IsCompiled(const UObject* ObjectToTest, bool ResetIfTrue)
-// {
-// 	UE_LOG(LogTemp, Display, TEXT("LastCompiledObject == ObjectToTest, %s == %s"), LastCompiledObject?*LastCompiledObject->GetName():TEXT("nullptr"), ObjectToTest?*ObjectToTest->GetName():TEXT("nullptr"))
-// 	bool bResult = !LastCompiledObject && !ObjectToTest && LastCompiledObject == ObjectToTest;
-//
-// 	
-// 	if (!bResult)
-// 	{
-// 		if (LastCompiledObject && ObjectToTest)
-// 		{
-// 			FString LastCompiledObjectName = LastCompiledObject->GetName();
-// 			FString ObjectToTestName = ObjectToTest->GetName();
-// 			if (LastCompiledObjectName.Len() > 0 && ObjectToTestName.Len()>0)
-// 			{
-// 				bResult = ObjectToTestName.Contains(LastCompiledObjectName);
-// 			}
-// 		}
-// 	}
-// 	
-// 	if (ResetIfTrue && bResult)
-// 	{
-// 		LastCompiledObject = nullptr;
-// 	}
-// 	return bResult;
-// }
-
 bool UBlueprintCompilationUtils::IsCompiled(const FName IsolationContext, const UObject* InObjectToTest, bool ResetIfTrue)
 {
 	
