@@ -6,10 +6,24 @@ This library need to add its referencing during the startup module method.
 
 In your Module base class, you must have a StartupModule method. If you don't have this method, that's mean you haven't still setup your project as a module. I let you follow this page to do this before: https://docs.unrealengine.com/5.1/en-US/how-to-make-a-gameplay-module-in-unreal-engine/
 
+Next, you need to add the dependency to your ProjectName.Build.cs, the dependency name is "CppBlueprintUtility".
+```csharp
+public class PorjectName : ModuleRules
+{
+	public PorjectName(ReadOnlyTargetRules Target) : base(Target)
+	{
+	    //...
+		PublicDependencyModuleNames.AddRange(new string[] { /*...*/, "CppBlueprintUtility", /*...*/});
+		//...
+	}
+}
+```
+
 So in your StartupModule method, add this line
 ```cpp
 UBlueprintCompilationUtils::RegisterPreCompileEvent();
 ```
+
 
 And that's all, you are ready to use the library
 
