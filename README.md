@@ -19,7 +19,7 @@ public class PorjectName : ModuleRules
 }
 ```
 
-So in your StartupModule method, add this line
+Then in your StartupModule method, add this line
 ```cpp
 UBlueprintCompilationUtils::RegisterPreCompileEvent();
 ```
